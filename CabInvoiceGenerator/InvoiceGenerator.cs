@@ -49,7 +49,7 @@ namespace CabInvoiceGenerator
         //Calculating fare for multiple rides
         public double MultipleRides(RideData[] rides)
         {
-            double totalfare=0;
+             double totalfare=0;
             if (rides.Length == 0)
             {
                 throw new CabInvoiceException(CabInvoiceException.ExceptionType.NULL_RIDES, "No rides found");
@@ -58,6 +58,7 @@ namespace CabInvoiceGenerator
             {
                 foreach(var ride in rides)
                 {
+                   
                     totalfare+=CalculateFare(ride.distance, ride.time);
                 }
                 
