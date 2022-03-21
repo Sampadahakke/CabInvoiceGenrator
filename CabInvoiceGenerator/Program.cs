@@ -23,6 +23,15 @@ namespace CabInvoiceGenerator
             Console.WriteLine("Total number of rides = " + rides.Length);
             double avgFare = aggFare / rides.Length;
             Console.WriteLine("Average fare = " + avgFare);
+            Console.WriteLine("------------------------UC4------------------");
+            RideRepository ride = new RideRepository();
+            ride.AddRide("101", rides);
+            RideData[] userRides = ride.getRides("101");
+            foreach(RideData userRide in userRides)
+            {
+                Console.WriteLine($"Distance:{userRide.distance} Time:{userRide.time}");
+            }
+
             Console.ReadKey();
         }
     }

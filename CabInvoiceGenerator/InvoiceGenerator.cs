@@ -22,6 +22,12 @@ namespace CabInvoiceGenerator
                 COST_PER_MIN = 1;
                 MINIMUM_FARE = 5;
             }
+            else if (type.Equals(RideType.PREMIUM))
+            {
+                COST_PER_KM = 15;
+                COST_PER_MIN = 2;
+                MINIMUM_FARE = 20;
+            }
         }
 
         //Creating method to calculate fare
@@ -65,6 +71,18 @@ namespace CabInvoiceGenerator
             }
             double aggregateFare=Math.Max(MINIMUM_FARE, totalfare);
             return aggregateFare;
+        }
+
+      
+        public double UserInvoice(string userId)
+        {
+            RideRepository ride = new RideRepository();
+            ride.AddRide("101", new RideData {10,15});
+            RideData[] userRides = ride.getRides("101");
+            foreach (RideData userRide in userRides)
+            {
+                Console.WriteLine($"Distance:{userRide.distance} Time:{userRide.time}");
+            }
         }
     }
 }

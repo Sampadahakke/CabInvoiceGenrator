@@ -16,5 +16,10 @@ namespace CabInvoiceGenerator
             this.distance = distance;
             this.time = time;       
         }
+
+        public override string ToString()
+        {
+            return ($"distance:{distance} time:{time}");
+        }
     }
 }
